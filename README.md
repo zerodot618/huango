@@ -10,3 +10,4 @@
 - [x] 使用 [Zap](https://github.com/uber-go/zap) 高性能日志库、集成 [lumberjack](https://github.com/natefinch/lumberjack) 滚动日志实现方案。
 - [x] 使用 [go-redis/redis](https://github.com/go-redis/redis) 作为操作 `Redis` 的基础库。
 - [x] 基于 [base64Captcha](https://github.com/mojocn/base64Captcha) 图片验证码库。
+- [x] 统一响应 `reponse` 包。
