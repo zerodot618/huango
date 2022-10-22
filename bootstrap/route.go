@@ -4,6 +4,7 @@ package bootstrap
 import (
 	"net/http"
 	"strings"
+	"zerodot618/huango/app/http/middlewares"
 	"zerodot618/huango/routes"
 
 	"github.com/gin-gonic/gin"
@@ -24,7 +25,8 @@ func SetupRoute(router *gin.Engine) {
 
 func registerGlobalMiddleWare(router *gin.Engine) {
 	router.Use(
-		gin.Logger(),
+		// gin.Logger(),
+		middlewares.Logger(),
 		gin.Recovery(),
 	)
 }
