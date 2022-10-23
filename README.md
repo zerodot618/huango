@@ -11,3 +11,4 @@
 - [x] 使用 [go-redis/redis](https://github.com/go-redis/redis) 作为操作 `Redis` 的基础库。
 - [x] 基于 [base64Captcha](https://github.com/mojocn/base64Captcha) 图片验证码库。
 - [x] 统一响应 `reponse` 包。
+- [x] 统一短信 `sms` 包，指出阿里云、腾讯云。
