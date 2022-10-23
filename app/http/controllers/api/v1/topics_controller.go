@@ -2,6 +2,7 @@ package v1
 
 import (
 	"zerodot618/huango/app/models/topic"
+	"zerodot618/huango/app/policies"
 	"zerodot618/huango/app/requests"
 	"zerodot618/huango/pkg/auth"
 	"zerodot618/huango/pkg/response"
@@ -39,6 +40,11 @@ func (ctrl *TopicsController) Update(c *gin.Context) {
 	topicModel := topic.Get(c.Param("id"))
 	if topicModel.ID == 0 {
 		response.Abort404(c)
+		return
+	}
+
+	if ok := policies.CanModifyTopic(c, topicModel); !ok {
+		response.Abort403(c)
 		return
 	}
 
