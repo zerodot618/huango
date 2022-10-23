@@ -13,6 +13,11 @@ func Success(msg string) {
 	colorOut(msg, "green")
 }
 
+// Info 打印一条成功消息，绿色输出
+func Info(msg string) {
+	colorOut(msg, "blue")
+}
+
 // Error 打印一条报错消息，红色输出
 func Error(msg string) {
 	colorOut(msg, "red")
