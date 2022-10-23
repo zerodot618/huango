@@ -3,7 +3,7 @@ package routes
 
 import (
 	"net/http"
-
+	controllers "zerodot618/huango/app/http/controllers/api/v1"
 	"zerodot618/huango/app/http/controllers/api/v1/auth"
 	"zerodot618/huango/app/http/middlewares"
 
@@ -70,5 +70,10 @@ func RegisterAPIRoutes(r *gin.Engine) {
 			authGroup.POST("/verify-codes/email", middlewares.LimitPerRoute("20-H"), vcc.SendUsingEmail)
 
 		}
+
+		// 用户
+		uc := new(controllers.UsersController)
+		// 获取当前用户
+		v1.GET("/user", middlewares.AuthJWT(), uc.CurrentUser)
 	}
 }
