@@ -14,3 +14,4 @@
 - [x] 统一短信 `sms` 包，支持阿里云、腾讯云。
 - [x] 发送短信验证码 `verifycode` 包。
 - [x] 基于 [Email SMTP Driver](https://github.com/jordan-wright/email) 的发送 `email` 包。
+- [x] 密码 `hash` 包。
