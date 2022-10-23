@@ -15,3 +15,4 @@
 - [x] 发送短信验证码 `verifycode` 包。
 - [x] 基于 [Email SMTP Driver](https://github.com/jordan-wright/email) 的发送 `email` 包。
 - [x] 密码 `hash` 包。
+- [x] 基于 [golang-jwt](https://github.com/golang-jwt/jwt) 的授权包 `jwt`。
