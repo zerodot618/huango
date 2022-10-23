@@ -17,3 +17,4 @@
 - [x] 密码 `hash` 包。
 - [x] 基于 [golang-jwt](https://github.com/golang-jwt/jwt) 的授权包 `jwt`。
 - [x] 基于 [ulule/limiter](https://github.com/ulule/limiter) 中间件。
+- [x] 基于 [Cobra](https://github.com/spf13/cobra) 命令行工具。
