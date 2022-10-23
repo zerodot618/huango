@@ -6,7 +6,6 @@ import (
 	"zerodot618/huango/bootstrap"
 	btsConfig "zerodot618/huango/config"
 	"zerodot618/huango/pkg/config"
-	"zerodot618/huango/pkg/sms"
 
 	"github.com/gin-gonic/gin"
 )
@@ -43,11 +42,6 @@ func main() {
 
 	// 初始化路由绑定
 	bootstrap.SetupRoute(router)
-
-	sms.NewSMS().Send("15711500967", sms.Message{
-		Template: config.GetString("sms." + config.GetString("sms.default") + ".template_code"),
-		Data:     map[string]string{"code": "123456"},
-	})
 
 	// 运行服务
 	err := router.Run(":" + config.Get("app.port"))
