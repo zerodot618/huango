@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"zerodot618/huango/app/cmd"
+	"zerodot618/huango/app/cmd/make"
 	"zerodot618/huango/bootstrap"
 	btsConfig "zerodot618/huango/config"
 	"zerodot618/huango/pkg/config"
@@ -48,6 +49,8 @@ func main() {
 		cmd.CmdServe,
 		cmd.CmdKey,
 		cmd.CmdPlay,
+		make.CmdMake,
+		cmd.CmdTestCommand,
 	)
 
 	// 配置默认运行 Web 服务
