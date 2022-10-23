@@ -10,7 +10,7 @@ import (
 
 func init() {
 
-	type User struct {
+	type Category struct {
 		models.BaseModel
 
 		Name        string `gorm:"type:varchar(255);not null;index"`
@@ -20,11 +20,11 @@ func init() {
 	}
 
 	up := func(migrator gorm.Migrator, DB *sql.DB) {
-		migrator.AutoMigrate(&User{})
+		migrator.AutoMigrate(&Category{})
 	}
 
 	down := func(migrator gorm.Migrator, DB *sql.DB) {
-		migrator.DropTable(&User{})
+		migrator.DropTable(&Category{})
 	}
 
 	migrate.Add("2022_10_23_141927_add_categories_table", up, down)
