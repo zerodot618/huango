@@ -8,15 +8,20 @@ import (
 
 // Message 是短信的结构体
 type Message struct {
-    Template string
-    Data     map[string]string
+	Template string
+	Data     map[string]string
 
-    Content string
+	Content string
 }
 
 // SMS 是我们发送短信的操作类
 type SMS struct {
-    Driver Driver
+	Driver Driver
+}
+
+var driverTypes = map[string]Driver{
+	"aliyun":  &Aliyun{},
+	"tencent": &Tencent{},
 }
 
 // once 单例模式
@@ -27,15 +32,15 @@ var internalSMS *SMS
 
 // NewSMS 单例模式获取
 func NewSMS() *SMS {
-    once.Do(func() {
-        internalSMS = &SMS{
-            Driver: &Aliyun{},
-        }
-    })
+	once.Do(func() {
+		internalSMS = &SMS{
+			Driver: driverTypes[config.GetString("sms.default")],
+		}
+	})
 
-    return internalSMS
+	return internalSMS
 }
 
 func (sms *SMS) Send(phone string, message Message) bool {
-    return sms.Driver.Send(phone, message, config.GetStringMapString("sms.aliyun"))
+	return sms.Driver.Send(phone, message, config.GetStringMapString("sms."+config.GetString("sms.default")))
 }
