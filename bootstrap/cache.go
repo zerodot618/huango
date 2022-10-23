@@ -2,9 +2,9 @@
 package bootstrap
 
 import (
-    "fmt"
-    "zerodot618/huango/pkg/cache"
-    "zerodot618/huango/pkg/config"
+	"fmt"
+	"zerodot618/huango/pkg/cache"
+	"zerodot618/huango/pkg/config"
 )
 
 // SetupCache 缓存
