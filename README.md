@@ -20,3 +20,37 @@
 - [x] 基于 [Cobra](https://github.com/spf13/cobra) 命令行工具，以及基于 [Ansi](https://github.com/mgutz/ansi) 支持高亮输出的终端打印信息包 `console`。
 - [x] 生成假数据 [Faker](https://github.com/bxcodec/faker)
 - [x] 基于 [imaging](https://github.com/disintegration/imaging) 的图片裁剪。
+
+## 本地 Docker 中使用方法
+
+启动容器：
+
+```
+make up
+```
+
+进入容器：
+
+```
+make exec
+```
+
+停止容器:
+
+```
+make down
+```
+
+运行迁移文件：
+
+```
+make exec
+go run main.go migrate up
+```
+
+填充假数据
+
+```
+make exec
+go run main.go seed
+```
