@@ -118,5 +118,13 @@ func RegisterAPIRoutes(r *gin.Engine) {
 		{
 			linksGroup.GET("", lsc.Index)
 		}
+
+		// 短地址
+		stc := new(controllers.ShortenerController)
+		shortenerGroup := v1.Group("/shortener")
+		{
+			shortenerGroup.POST("/encode", middlewares.AuthJWT(), stc.CreateShortURL)
+			shortenerGroup.GET("/decode/:short-url", stc.ReturnLongURL)
+		}
 	}
 }
