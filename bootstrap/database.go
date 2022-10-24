@@ -42,8 +42,7 @@ func SetupDB() {
 			config.Get("database.postgres.port"),
 		)
 		dbConfig = postgres.New(postgres.Config{
-			DSN:                  dsn,
-			PreferSimpleProtocol: true,
+			DSN: dsn,
 		})
 	case "sqlite":
 		// 初始化 sqlite

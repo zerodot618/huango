@@ -1,0 +1,52 @@
+version: '3.9' # 指定本 yml 依从的 compose 哪个版本制定的
+
+services:
+  huango:
+    container_name: huango
+    image: zerodot618/huango:dev
+    # 指定为构建镜像(Dockerfile)上下文路径
+    build:
+      context: .
+      target: dev
+
+    # 将主机的数据卷或着文件挂载到容器里
+    volumes: 
+      - .:/go/src/app
+    # 指定端口映射
+    ports:
+      - "3000:3000"
+      - "2345:2345"
+    networks:
+      - huango-network
+  
+  huango-db:
+    container_name: huango-db
+    image: postgres
+    environment:
+      - POSTGRES_USER=${DB_USERNAME} 
+      - POSTGRES_PASSWORD=${DB_PASSWORD} 
+      - POSTGRES_DB=${DB_DATABASE} 
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - huango-network
+
+  huango-cache:
+    container_name: huango-cache
+    image: redis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - "6379:6379"
+    networks:
+      - huango-network
+
+volumes:
+  # 数据库 postgres 数据卷
+  postgres-db:
+
+networks:
+  huango-network:
+    name: huango-network
